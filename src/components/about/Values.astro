@@ -1,0 +1,59 @@
+---
+const values = [
+  [
+    {
+      ref: '01',
+      name: 'Čistoća',
+      description:
+        'Čistoća je nešto do čega držimo najviše. Od industrijskih sterilizatora do anodiziranog alata za pedikuru - osigurana je stopostotna zaštita od gljivica i bakterija.',
+    },
+    {
+      ref: '02',
+      name: 'Bez boli',
+      description:
+        'Toliko ljudi izbjegava ići kod pedikera upravo zbog nelagode. Mi to razumijemo i svaka procedura pa čak i problematične pedikure kod nas su bezbolne i zapravo... ugodne 😄 ',
+    },
+  ],
+  [
+    {
+      ref: '03',
+      name: 'Zadovoljstvo i povratak',
+      description:
+        'Do sada imamo samo najbolje povratne informacije o zadovoljstvu klijenata (i lokalnih i na terenu), a gotovo svi se vrate ponovo.',
+    },
+    {
+      ref: '04',
+      name: 'Česti bonusi i popusti',
+      description:
+        'Svaka sedma pedikura je besplatna, svatko tko dođe po preporuci ima prvu pedikuru besplatnu, a kupovina svakog poklon bona štedi vam 30% od ukupne cijene. Ovakve akcije dešavaju se stalno i vrijede za sve stalne klijente.',
+    },
+  ],
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col gap-8 lg:gap-12">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Naši principi i vrijednosti</h2>
+      <div class="grid gap-8 lg:grid-cols-2">
+        {
+          values.map((column, index) => (
+            <div class:list={['space-y-8', index === 1 && 'lg:mt-16']}>
+              {column.map((value) => (
+                <div class="bg-primary-500/10 dark:bg-primary-400/10 flex flex-col gap-12 rounded-3xl px-6 py-8">
+                  <p class="text-sm">{value.ref}</p>
+                  <div class="flex flex-col gap-4">
+                    <h3 class="text-xl font-medium">{value.name}</h3>
+                    <p class="text-primary-950/70 dark:text-primary-200/70 text-base sm:text-lg">
+                      {value.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

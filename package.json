@@ -1,0 +1,28 @@
+{
+  "name": "astro-theme-stone",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "3.13.3",
+    "@astrojs/tailwind": "5.1.0",
+    "@fontsource/inter": "5.0.16",
+    "@types/alpinejs": "3.13.6",
+    "alpinejs": "3.13.3",
+    "astro": "4.1.1",
+    "astro-compress": "2.2.7",
+    "prettier": "3.1.1",
+    "prettier-plugin-astro": "0.12.3",
+    "prettier-plugin-tailwindcss": "0.5.11",
+    "tailwindcss": "3.4.1"
+  },
+  "devDependencies": {
+    "@types/alpinejs__collapse": "^3.13.3"
+  }
+}

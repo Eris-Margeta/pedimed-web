@@ -1,0 +1,152 @@
+---
+const links = [
+  {
+    ref: '01',
+    name: 'Naslovnica',
+    href: '/',
+  },
+  {
+    ref: '02',
+    name: 'O nama',
+    href: '/o-nama',
+  },
+  {
+    ref: '03',
+    name: 'Cijene',
+    href: '/cijene',
+  },
+  {
+    ref: '04',
+    name: 'Kontakt',
+    href: '/kontakt',
+  },
+];
+---
+
+<header
+  x-data="{ open: false }"
+  class="transition"
+  :class="{ 'bg-primary-500/10 ': open, 'bg-primary-50 ': !(open) }"
+>
+  <div
+    class="mx-auto flex max-w-2xl items-center justify-between px-4 py-4 sm:px-6 sm:py-6 lg:max-w-7xl lg:px-8"
+  >
+    <!-- Brand logo -->
+    <div class="flex">
+      <a
+        href="/"
+        class="focus-visible:outline-primary-950  rounded-md focus-visible:outline focus-visible:outline-2"
+      >
+        <span class="sr-only">Pedimed</span>
+        <img
+          class="h-12 w-auto"
+          width="110"
+          height="65"
+          src="/assets/pedimed-logo.svg"
+          alt="Pedimed Logo"
+        />
+      </a>
+    </div>
+
+    <!-- Actions -->
+    <div class="-mr-2 flex items-center space-x-2 sm:space-x-3">
+   
+     
+
+      <!-- Toggle menu -->
+      <button
+        type="button"
+        class="text-primary-950  hover:bg-primary-500/10 ring-primary-950 inline-flex h-14 w-14 items-center justify-center rounded-full transition focus:outline-none focus-visible:ring-2"
+        @click="open = !open"
+        @mousedown="if (open) $event.preventDefault()"
+        aria-controls="website-menu"
+        aria-expanded="false"
+        :aria-expanded="open.toString()"
+      >
+        <span class="sr-only">Toggle menu</span>
+        <svg
+          x-cloak
+          class="h-8 w-8"
+          :class="{ 'hidden': open, 'block': !(open) }"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M19 8H5V10H19V8ZM19 14H5V16H19V14Z"></path>
+        </svg>
+        <svg
+          x-cloak
+          class="h-8 w-8"
+          :class="{ 'block': open, 'hidden': !(open) }"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu content -->
+  <div
+    class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+    id="website-menu"
+    x-cloak
+    x-show="open"
+    x-collapse
+    x-collapse.duration.500ms
+  >
+    <div class="grid grid-cols-1 gap-16 pb-24 pt-6 lg:grid-cols-2 lg:pt-12">
+      <div
+        class="bg-primary-500/10  hidden items-center justify-center rounded-3xl px-6 py-8 lg:flex"
+      >
+        <p
+          class="text-primary-950/70  max-w-full text-xl italic leading-loose"
+        >
+         
+          <img
+          class="h-auto w-full inset-0"
+          width="240"
+          height="300"
+          src="/assets/lidija-margeta.jpg"
+          alt="Stone"
+        />
+
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="divide-primary-900/10 flex flex-col gap-1 divide-y">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="text-primary-950 group inline-flex py-6 text-3xl font-medium tracking-tight transition focus-visible:outline-none sm:py-8 sm:text-4xl"
+            >
+              <div class="group-focus-visible:outline-primary-950  flex flex-1 items-center justify-between rounded-3xl group-focus-visible:outline group-focus-visible:outline-2 group-focus-visible:outline-offset-2">
+                <div class="flex items-center gap-6">
+                  <span class="text-xs">{link.ref}</span>
+                  <span class="group-hover:underline">{link.name}</span>
+                </div>
+                <svg
+                  class="text-primary-600  h-6 w-6 sm:h-8 sm:w-8"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                </svg>
+              </div>
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</header>
